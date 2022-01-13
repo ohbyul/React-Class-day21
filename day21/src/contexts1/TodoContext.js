@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useRef, useState } from 'react';
+import React, { createContext, useRef, useState } from 'react';
 
 export const TodoContext = createContext()
 
@@ -41,13 +41,8 @@ const TodoProvider = (props) => {
             {...item , isChecked : !item.isChecked} : item)
         setData(newData)
     }
-
-    //useMemo( () => () , [])
-    const value = useMemo( () => ({ data ,onDel , onToggle, text, changeInput , onAdd }) 
-    , [ data ,onDel , onToggle, text, changeInput , onAdd] )
-
     return (
-        <TodoContext.Provider value={value}>
+        <TodoContext.Provider value={{ data ,onDel , onToggle, text, changeInput , onAdd }}>
             {props.children}
         </TodoContext.Provider>
     );

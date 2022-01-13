@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 export const CountContext = createContext();
 //관리자
@@ -8,12 +8,8 @@ const CountProvider = (props) => {
     const increment = () => { setCount(count + 1) }
     const decrement = () => { setCount(count - 1) }
 
-    //useMemo( () => () , [])
-    const value =useMemo( () => ({count,increment,decrement}) 
-    , [count,increment,decrement])
-
     return (
-        <CountContext.Provider value={value}>
+        <CountContext.Provider value={{count,increment,decrement}}>
             { props.children }
         </CountContext.Provider>
     );

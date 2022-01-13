@@ -14,13 +14,29 @@ function App() {
   return (
     <div className="App">
       <ColorProvider>
-        <CountProvider>
-          <Count />
-          <hr /> 
-          <Color />
-        </CountProvider>
+        <Color />
       </ColorProvider>
 
+      <hr />
+      <CountProvider>
+        <Count /> 
+      </CountProvider>
+      
+      <hr />
+      <ChangeColorProvider>
+        <ChangeColor />
+      </ChangeColorProvider>
+      
+      <hr />
+      <CntProvider>
+        <Cnt />
+      </CntProvider>
+      
+      <hr />
+      <TodoProvider>
+        <Todos />
+      </TodoProvider>
+      
     </div>
   );
 }
